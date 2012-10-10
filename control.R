@@ -1,0 +1,31 @@
+#Aim:
+#    To control the process of analisys, transfering the data from one module to another.
+#
+#
+#
+#Input:
+#     list(
+#            db_conf = list(
+#              name = $dbName,
+#              user = $dbUserName,
+#              pass = $dbUserPass),
+#            firstFilter = list(
+#              var = $characteristic of neuronal activity,
+#              spike_num = $spikeNumber,
+#              resp_num = $responseNumber,
+#              stage = $stageOfExp),
+#            secondFilter = list(
+#              time = c(
+#                start = $start,
+#                stop = $stop),
+#              time_step = $sepOfTimeSplit),
+#            tags = list(
+#              c(tag1,tag2,tag3),
+#              c(tag2,tag3,tag4),
+#              ...)
+#          )
+
+source('userInput.R')
+source('complex.R')
+config<-getConfig()
+higthLev<-hightLevelProc(config$tags,config$secondFilter)
