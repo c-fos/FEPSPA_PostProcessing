@@ -29,6 +29,8 @@ lowLevelProc<-function(tag_vector,lowFilter){
 
 singleExpFitting<-function(id){
   rawData<-db_read_data(id,config$db_conf,config$firstFilter)
+  print(id)
+  print(rawData)
   rawData$time<-as.numeric(strptime(rawData$time,"%H:%M:%S"))
   #plot raw data
   plot_raw(rawData,tag_vector)
@@ -37,6 +39,9 @@ singleExpFitting<-function(id){
   #time norm
   filteredData$time<-filteredData$time-filteredData$time[1]
   #value norm
-  filteredData$value<-filteredData$value/filteredData$value[2]
+  filteredData$value<-filteredData$value/filteredData$value[1]
+  #filteredData$value<-filteredData$value-filteredData$value[1]
+  #normPoint<-max(filteredData$value[filteredData$time<90])
+  #filteredData$value<-filteredData$value/normPoint#
   return(filteredData)
 }

@@ -15,7 +15,7 @@ source("db_interface.R")
 
 db_read_id<-function(tag_vector,db_conf){
   read_id<-function(tag){
-    IdQuery<-sprintf("SELECT `experiment`.`idexperiment` FROM `filterdb`.`experimentTags` AS `experimentTags`, `filterdb`.`experiment` AS `experiment`, `filterdb`.`tagTable` AS `tagTable` WHERE `experimentTags`.`experiment_idexperiment` = `experiment`.`idexperiment` AND `experimentTags`.`tagTable_tagId` = `tagTable`.`tagId` AND `tagTable`.`tagName` = %s",tag)
+    IdQuery<-sprintf("SELECT `experiment`.`idexperiment` FROM `filterdb`.`experimentTags` AS `experimentTags`, `filterdb`.`experiment` AS `experiment`, `filterdb`.`tagTable` AS `tagTable` WHERE `experimentTags`.`experiment_idexperiment` = `experiment`.`idexperiment` AND `experimentTags`.`tagTable_tagId` = `tagTable`.`tagId` AND `experiment`.`mask` = 1 AND `tagTable`.`tagName` = %s",tag)
     tmp_id_vector<- db_exec(IdQuery,db_conf)
     return(tmp_id_vector)
   }

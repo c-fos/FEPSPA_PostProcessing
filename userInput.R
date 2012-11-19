@@ -38,15 +38,27 @@ configList<-list(
              secondFilter = list(
                time = c(
                  0,
-                 3600),
-               time_step = as.integer(200)),
+                 240),
+               time_step = as.integer(30)),
              tags = list(
-               c("'dmso'","'control'"),
-               c("'dmso'","'exo1'"))
+               #c("'il6+cof'","'with_il6'","'control'"),
+               #c("'il6+cof'","'with_il6'","'0.5mM_cofein'"),
+               #c("'il6+cof'","'with_il6'","'1mM_cofein'"),
+               #c("'il6+cof'","'with_il6'","'10mM_cofein'"),
+               #c("'il6+cof'","'without_il6'","'control'"),
+               #c("'il6+cof'","'without_il6'","'0.5mM_cofein'"),
+               #c("'il6+cof'","'without_il6'","'1mM_cofein'"))#,
+               #c("'il6+cof'","'without_il6'","'10mM_cofein'"))#,
+               #c("'hight_bfa'"))
+               #c("'test'","'manual'"))
+               #c("'vesicular'","'clear'"),
+               #c("'vesicular'","'5mkg'"),
+               #c("'vesicular'","'0.1mkg'"),
+               #c("'vesicular'","'1mkg'"))
+               c("'control'","'detail'"))
            )
 
 getConfig<-function(){
-  
   return(configList)
 }
 

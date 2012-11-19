@@ -25,7 +25,9 @@
 #              ...)
 #          )
 
-source('userInput.R')
+source('tagsParser.R')
+source('webUserInput.R')
 source('complex.R')
 config<-getConfig()
+print(config)
 higthLev<-hightLevelProc(config$tags,config$secondFilter)
