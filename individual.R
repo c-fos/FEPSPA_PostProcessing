@@ -39,9 +39,27 @@ singleExpFitting<-function(id){
   #time norm
   filteredData$time<-filteredData$time-filteredData$time[1]
   #value norm
-  filteredData$value<-filteredData$value/filteredData$value[1]
-  #filteredData$value<-filteredData$value-filteredData$value[1]
-  #normPoint<-max(filteredData$value[filteredData$time<90])
-  #filteredData$value<-filteredData$value/normPoint#
-  return(filteredData)
+  #filteredData$value<-filteredData$value/filteredData$value[1]
+  filteredData$value<-filteredData$value-filteredData$value[1]
+  #normPoint<-max(filteredData$value[filteredData$time<150])
+  normPoint<-filteredData$value[2]
+  filteredData$value<-filteredData$value/normPoint#
+  striped_groups<-stripByTime(filteredData,config$secondFilter$time)
+  result<-time_split_for_one(striped_groups)
+  return(result)
+}
+
+time_split_for_one<-function(df){
+  tmpTimeFactors<-df$time[2:length(df$time)]%/%config$secondFilter$time_step
+  if (tmpTimeFactors[1]==0) tmpTimeFactors<-tmpTimeFactors+1
+  if (tmpTimeFactors[1]==2) tmpTimeFactors<-tmpTimeFactors-1
+  time_factor<-as.factor(c(0,tmpTimeFactors))
+  result<-cbind(df,time_factor=time_factor)
+  print(result)
+  return(result)
+}
+
+stripByTime<-function(df,time_vect){
+  tmp<-df[df$time>=time_vect[1] & df$time<=time_vect[2],]
+  return(tmp)
 }

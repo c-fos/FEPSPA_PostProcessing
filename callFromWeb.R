@@ -1,0 +1,8 @@
+library("knitr")
+library("markdown")
+#knitr::opts_knit$set(output.dir="/home/pilat/workspace/web_fEPSPA/media/")
+knitr::opts_knit$set(fig.path="/home/pilat/workspace/web_fEPSPA/media/figure/")
+o <- spin("/home/pilat/workspace/PostProcessing_v.2/control.R", knit = FALSE)
+knit2html(o, envir = new.env())
+markdownToHTML("/home/pilat/workspace/PostProcessing_v.2/control.md","/home/pilat/workspace/django_templates/web_fEPSPA/Routput.html")
+#markdownToHTML("/home/pilat/workspace/web_fEPSPA/media/control.md","/home/pilat/workspace/django_templates/web_fEPSPA/Routput.html")
