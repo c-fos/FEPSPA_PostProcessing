@@ -1,3 +1,5 @@
+
+```{r }
 #Aim:
 #    To control the process of analisys, transfering the data from one module to another.
 #
@@ -31,3 +33,5 @@ source('complex.R')
 config<-getConfig()
 print(config)
 higthLev<-hightLevelProc(config$tags,config$secondFilter)
+```
+
