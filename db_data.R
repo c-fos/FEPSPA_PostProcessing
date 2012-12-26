@@ -22,4 +22,10 @@ db_read_data<-function(id,db_conf,firstFilter){
   tmp_dataFrame<- db_exec(dataQuery,db_conf)
   return(tmp_dataFrame)
 }
- 
+
+db_read_tetan<-function(id,db_conf){
+  idStr<-paste(id,collapse=",")
+  dataQuery<-sprintf("SELECT * FROM `tetanView` WHERE idexperiment IN (%s)",idStr)
+  tmp_dataFrame<- db_exec(dataQuery,db_conf)
+  return(tmp_dataFrame)
+}

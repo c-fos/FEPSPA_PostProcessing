@@ -28,6 +28,12 @@
 source('tagsParser.R')
 source('webUserInput.R')
 source('complex.R')
+source('tetanTableCreator.R')
 config<-getConfig()
-print(config)
-higthLev<-hightLevelProc(config$tags,config$secondFilter)
+print(config$firstFilter$analysis)
+if (config$firstFilter$analysis == "individualStim"){
+  higthLev<-hightLevelProc(config$tags,config$secondFilter)
+}
+if (config$firstFilter$analysis == "tetan"){
+  startTetanProcessing()#higthLev<-hightTetan(config$tags,config$secondFilter)
+}
