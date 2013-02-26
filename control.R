@@ -24,11 +24,10 @@
 #              c(tag2,tag3,tag4),
 #              ...)
 #          )
-
-source('tagsParser.R')
-source('webUserInput.R')
-source('complex.R')
-source('tetanTableCreator.R')
+source('/home/pilat/workspace/PostProcessing_v.2/tagsParser.R')
+source('/home/pilat/workspace/PostProcessing_v.2/webUserInput.R')
+source('/home/pilat/workspace/PostProcessing_v.2/complex.R')
+source('/home/pilat/workspace/PostProcessing_v.2/tetanTableCreator.R')
 config<-getConfig()
 print(config$firstFilter$analysis)
 if (config$firstFilter$analysis == "individualStim"){

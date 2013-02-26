@@ -28,7 +28,7 @@
 configList<-list(
              db_conf = list(
                name = "filterdb",
-               user = "filteruser_local",
+               user = "filter_user",
                pass = "filter123"),
              firstFilter = list(
                var = "ampl",
@@ -55,7 +55,7 @@ configList<-list(
                #c("'vesicular'","'5mkg'"),
                #c("'vesicular'","'0.1mkg'"),
                #c("'vesicular'","'1mkg'"))
-               c("'control'","'detail'"))
+               c("'T-90'"))
            )
 
 getConfig<-function(){

@@ -15,6 +15,8 @@ plot_raw<-function(df,tag_vector){
   points(df$time[df$tagName=="реоксигенация"],df$value[df$tagName=="реоксигенация"],col="orange")
   points(df$time[df$tagName=="инкубация"],df$value[df$tagName=="инкубация"],col="blue")
   points(df$time[df$tagName=="тетанизация"],df$value[df$tagName=="тетанизация"],col="green")
+  points(df$time[df$tagName=="воздействие"],df$value[df$tagName=="воздействие"],col="yellow")
+  points(df$time[df$tagName=="эпилепт"],df$value[df$tagName=="эпилепт"],col="brown") 
   serviceText<-sprintf("Id=%i,\n ExpName=%s",df$idexperiment[1],df$experimentName[1])
   mtext(serviceText)
 }

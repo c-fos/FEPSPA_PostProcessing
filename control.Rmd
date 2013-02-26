@@ -26,12 +26,17 @@
 #              c(tag2,tag3,tag4),
 #              ...)
 #          )
-
-source('tagsParser.R')
-source('webUserInput.R')
-source('complex.R')
+source('/home/pilat/workspace/PostProcessing_v.2/tagsParser.R')
+source('/home/pilat/workspace/PostProcessing_v.2/webUserInput.R')
+source('/home/pilat/workspace/PostProcessing_v.2/complex.R')
+source('/home/pilat/workspace/PostProcessing_v.2/tetanTableCreator.R')
 config<-getConfig()
-print(config)
-higthLev<-hightLevelProc(config$tags,config$secondFilter)
+print(config$firstFilter$analysis)
+if (config$firstFilter$analysis == "individualStim"){
+  higthLev<-hightLevelProc(config$tags,config$secondFilter)
+}
+if (config$firstFilter$analysis == "tetan"){
+  startTetanProcessing()#higthLev<-hightTetan(config$tags,config$secondFilter)
+}
 ```
 
